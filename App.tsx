@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
 import React from 'react'
-import { Register } from './src/register/screen/Register'
+import { RegisterScreen } from './src/register/screen/RegisterScreen'
 import { AuthProvider } from './src/context/authContext'
-import { Login } from './src/login/screen/Login'
+import { LoginScreen } from './src/login/screen/LoginScreen'
+import { StackNavigate } from './src/routes/StackNavigate'
 
 const App = () => {
   return (
@@ -12,8 +13,10 @@ const App = () => {
           backgroundColor= 'white'
           barStyle='dark-content'
         />
-        {/* <Register /> */}
-        <Login />
+        {/* <RegisterScreen /> */}
+        {/* <LoginScreen /> */}
+        <StackNavigate />
+
       </SafeAreaView>
     </AuthProvider>
     )

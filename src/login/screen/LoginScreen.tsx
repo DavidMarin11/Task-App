@@ -6,8 +6,11 @@ import { authContext } from '../../context/authContext'
 import { CustomInput } from '../../components/CustomInput'
 import { CustomButton } from '../../components/CustomButton'
 import { Logo } from '../../components/Logo'
+import { StackScreenProps } from '@react-navigation/stack'
 
-export const Login = () => {
+interface Props extends StackScreenProps<any, any>{};
+
+export const LoginScreen = ({navigation}:Props) => {
     const { register } = useContext(authContext);
     const {control, handleSubmit, watch, formState: { errors }} = useForm();
 
@@ -71,6 +74,7 @@ export const Login = () => {
             <TouchableOpacity
                 activeOpacity={0.6}
                 style={{ marginTop:10}}
+                onPress={ () => navigation.navigate('register') }
             >
                 <Text style={ [style.textCheckIn, {color: '#00045E'}] }>
                     Registrarse

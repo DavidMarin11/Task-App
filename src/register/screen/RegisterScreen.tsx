@@ -7,7 +7,7 @@ import { CustomInput } from '../../components/CustomInput'
 import { CustomButton } from '../../components/CustomButton'
 import { Logo } from '../../components/Logo'
 
-export const Register = () => {
+export const RegisterScreen = () => {
     const { register } = useContext(authContext);
     const {control, handleSubmit, watch, formState: { errors }} = useForm();
 
