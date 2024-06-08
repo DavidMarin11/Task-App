@@ -4,6 +4,7 @@ import { RegisterScreen } from './src/register/screen/RegisterScreen'
 import { AuthProvider } from './src/context/authContext'
 import { LoginScreen } from './src/login/screen/LoginScreen'
 import { StackNavigate } from './src/routes/StackNavigate'
+import { TasksScreen } from './src/tasks/screen/TasksScreen'
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         />
         {/* <RegisterScreen /> */}
         {/* <LoginScreen /> */}
-        <StackNavigate />
+        {/* <StackNavigate /> */}
+        <TasksScreen />
 
       </SafeAreaView>
     </AuthProvider>
