@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 export const style = StyleSheet.create({
     content: {
         flex: 1
@@ -14,5 +15,12 @@ export const style = StyleSheet.create({
     },
     text: {
         fontSize: 20
+    },
+    contentCheckIn: {
+        alignItems: 'center',
+        marginTop: 60
+    },
+    textCheckIn: {
+        fontSize: 18
     }
 })

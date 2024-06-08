@@ -1,17 +1,18 @@
 import React from 'react'
 import { Controller } from 'react-hook-form'
-import { StyleSheet, TextInput, View } from 'react-native'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
 
 interface Props {
     control: any
     name: string,
     rules: any,
-    placeholder: string
+    placeholder: string,
+    errors: any
 }
 
-export const CustomInput = ({control, name, rules, placeholder}:Props) => {
+export const CustomInput = ({control, name, rules, placeholder, errors}:Props) => {
   return (
-    <>
+    <View style={ style.formRegister }>
         <Controller
             control= {control}
             name = {name}
@@ -26,16 +27,23 @@ export const CustomInput = ({control, name, rules, placeholder}:Props) => {
                 />
             )}
         />
-    </>
+        {
+            errors && <Text style={{color: 'red'}}>{(errors.message?.toString())}</Text>
+        }
+    </View>
   )
 }
 
 const style = StyleSheet.create({
     input: {
         borderWidth: 1,
-        width: '60%',
+        width: '80%',
         height: 40,
         borderRadius: 10,
         padding: 10
-    }
+    },
+    formRegister: {
+        marginTop: 20,
+        alignItems: 'center',
+    },
 })

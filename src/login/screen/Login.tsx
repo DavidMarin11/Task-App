@@ -1,19 +1,17 @@
 import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import {style} from '../style/styleRegister'
+import {style} from '../styles/styleLogin'
 import { authContext } from '../../context/authContext'
 import { CustomInput } from '../../components/CustomInput'
 import { CustomButton } from '../../components/CustomButton'
 import { Logo } from '../../components/Logo'
 
-export const Register = () => {
+export const Login = () => {
     const { register } = useContext(authContext);
     const {control, handleSubmit, watch, formState: { errors }} = useForm();
 
-    const passValidate = watch('password')
-
-    const signUp = handleSubmit((data) => {
+    const signIn = handleSubmit((data) => {
         console.log(data);
         
         register(data);
@@ -25,24 +23,8 @@ export const Register = () => {
             <Logo />
         </View>
         <View style={ style.contentText }>
-            <Text style={ style.text }>Crea tu cuenta</Text>
+            <Text style={ style.text }>Ingrese a su cuenta</Text>
         </View>
-        <CustomInput
-            control={control}
-            name='name'
-            rules= {{
-                required: {
-                    value: true,
-                    message: 'El nombre es obligatorio'
-                },
-                minLength: {
-                    value: 3,
-                    message: 'El nombre debe de ser de mas 3 caracteres'
-                }
-            }}
-            placeholder='Nombre'
-            errors={errors.name}
-        />
         <CustomInput
             control={control}
             name='email'
@@ -75,24 +57,25 @@ export const Register = () => {
             placeholder='Contraseña'
             errors={errors.password}
         />
-        <CustomInput
-            control={control}
-            name='password_confirm'
-            rules={{
-                required: {
-                    value: true,
-                    message:'La confirmación de la contraseña es requerida'
-                },
-                validate: value => value === passValidate || 'La contraseña no coincide'
-            }}
-            placeholder='Confirmar Contraseña'
-            errors={errors.password_confirm}
-        />
+
         <View style={{marginTop: 35}}>
             <CustomButton
-                name='REGISTRAR'
-                onPress={signUp}
+                name='INICIAR'
+                onPress={signIn}
             />
+        </View>
+        <View style={ style.contentCheckIn }>
+            <Text style={ style.textCheckIn }>
+                ¿No tengo una cuenta?
+            </Text>
+            <TouchableOpacity
+                activeOpacity={0.6}
+                style={{ marginTop:10}}
+            >
+                <Text style={ [style.textCheckIn, {color: '#00045E'}] }>
+                    Registrarse
+                </Text>
+            </TouchableOpacity>
         </View>
     </View>
   )
