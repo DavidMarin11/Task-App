@@ -74,6 +74,7 @@ export const RegisterScreen = () => {
             }}
             placeholder='Contraseña'
             errors={errors.password}
+            secureTextEntry={true}
         />
         <CustomInput
             control={control}
@@ -87,6 +88,7 @@ export const RegisterScreen = () => {
             }}
             placeholder='Confirmar Contraseña'
             errors={errors.password_confirm}
+            secureTextEntry={true}
         />
         <View style={{marginTop: 35}}>
             <CustomButton

@@ -59,6 +59,7 @@ export const LoginScreen = ({navigation}:Props) => {
             }}
             placeholder='Contraseña'
             errors={errors.password}
+            secureTextEntry={true}
         />
 
         <View style={{marginTop: 35}}>

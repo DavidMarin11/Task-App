@@ -7,10 +7,11 @@ interface Props {
     name: string,
     rules: any,
     placeholder: string,
-    errors: any
+    errors: any,
+    secureTextEntry?: boolean
 }
 
-export const CustomInput = ({control, name, rules, placeholder, errors}:Props) => {
+export const CustomInput = ({control, name, rules, placeholder, errors, secureTextEntry}:Props) => {
   return (
     <View style={ style.formRegister }>
         <Controller
@@ -24,6 +25,7 @@ export const CustomInput = ({control, name, rules, placeholder, errors}:Props) =
                     value={ value }
                     onChangeText={ onChange }
                     onBlur={ onBlur }
+                    secureTextEntry = {secureTextEntry}
                 />
             )}
         />
