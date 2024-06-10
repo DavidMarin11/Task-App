@@ -4,9 +4,9 @@ import { StyleSheet, Text, View } from 'react-native'
 export const Logo = () => {
   return (
     <>
-        <Text style={ style.textLogo }>
-            TASK APP
-        </Text>
+      <Text style={ style.textLogo }>
+          TASK APP
+      </Text>
     </>
   )
 }
