@@ -11,7 +11,6 @@ export const TasksScreen = () => {
             <Logo />
         </View>
         <View>
-           <Icon />
         </View>
     </View>
   )

@@ -16,8 +16,8 @@ const App = () => {
         />
         {/* <RegisterScreen /> */}
         {/* <LoginScreen /> */}
-        {/* <StackNavigate /> */}
-        <TasksScreen />
+        <StackNavigate />
+        {/* <TasksScreen /> */}
 
       </SafeAreaView>
     </AuthProvider>
