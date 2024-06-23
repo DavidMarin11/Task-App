@@ -1,5 +1,5 @@
-import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native'
-import React, { useContext, useState } from 'react'
+import { View, Text, TextInput, Button, TouchableOpacity, ToastAndroid } from 'react-native'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import {style} from '../styles/styleLogin'
 import { authContext } from '../../context/authContext'
@@ -7,21 +7,34 @@ import { CustomInput } from '../../components/CustomInput'
 import { CustomButton } from '../../components/CustomButton'
 import { Logo } from '../../components/Logo'
 import { StackScreenProps } from '@react-navigation/stack'
+import { ScrollView } from 'react-native-gesture-handler'
 
 interface Props extends StackScreenProps<any, any>{};
 
 export const LoginScreen = ({navigation}:Props) => {
-    const { register } = useContext(authContext);
+    const { login, message } = useContext(authContext);
     const {control, handleSubmit, watch, formState: { errors }} = useForm();
 
     const signIn = handleSubmit((data) => {
-        console.log(data);
-        
-        register(data);
+        login(data);
+        if (message != '') {
+            showToastWithGravity(message);
+        }
     })
+
+    const showToastWithGravity = (message: string) => {
+        ToastAndroid.showWithGravityAndOffset(
+            message,
+            ToastAndroid.LONG,
+            ToastAndroid.BOTTOM,
+            25,
+            50,
+        );
+    };
 
   return (
     <View style={ style.content }>
+        <ScrollView>
         <View style={ style.logoContent}>
             <Logo />
         </View>
@@ -82,6 +95,7 @@ export const LoginScreen = ({navigation}:Props) => {
                 </Text>
             </TouchableOpacity>
         </View>
+        </ScrollView>
     </View>
   )
 }

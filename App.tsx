@@ -1,12 +1,21 @@
-import { View, Text, StyleSheet, SafeAreaView, StatusBar } from 'react-native'
-import React from 'react'
-import { RegisterScreen } from './src/register/screen/RegisterScreen'
+import { StyleSheet, SafeAreaView, StatusBar } from 'react-native'
 import { AuthProvider } from './src/context/authContext'
-import { LoginScreen } from './src/login/screen/LoginScreen'
-import { StackNavigate } from './src/routes/StackNavigate'
-import { TasksScreen } from './src/tasks/screen/TasksScreen'
+import { Navigate } from './src/routes/Navigate'
+import { useEffect, useState } from 'react';
+import { InitialScreen } from './src/initial/screen/InitialScreen';
 
 const App = () => {
+  const [initial, setInitial] = useState<boolean>(true);
+
+  useEffect(() => {
+      setTimeout(() =>
+      {
+        setInitial(false);
+      }, 3000);
+  })
+
+  if (initial) return <InitialScreen />
+
   return (
     <AuthProvider>
       <SafeAreaView style={style.container}>
@@ -14,11 +23,7 @@ const App = () => {
           backgroundColor= 'white'
           barStyle='dark-content'
         />
-        {/* <RegisterScreen /> */}
-        {/* <LoginScreen /> */}
-        <StackNavigate />
-        {/* <TasksScreen /> */}
-
+        <Navigate />
       </SafeAreaView>
     </AuthProvider>
     )

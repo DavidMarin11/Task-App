@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Button, TouchableOpacity, ToastAndroid } from 'react-native'
+import { View, Text, TextInput, Button, TouchableOpacity, ToastAndroid, Alert } from 'react-native'
 import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import {style} from '../style/styleRegister'
@@ -10,21 +10,21 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { ModalMessage } from '../../components/ModalMessage'
 
 export const RegisterScreen = () => {
-    const { register, bandera } = useContext(authContext);
+    const { register, message, isLogin } = useContext(authContext);
     const {control, handleSubmit, watch, formState: { errors }} = useForm();
-
     const passValidate = watch('password')
 
     const signUp = handleSubmit((data) => {
         register(data);
-        if (bandera) {
-            showToastWithGravity();
+        
+        if (message != '') {
+            showToastWithGravity(message);
         }
     })
 
-    const showToastWithGravity = () => {
+    const showToastWithGravity = (message: string) => {
         ToastAndroid.showWithGravityAndOffset(
-            'El correo ingresado ya se encuentra registrado.',
+            message,
             ToastAndroid.LONG,
             ToastAndroid.BOTTOM,
             25,
