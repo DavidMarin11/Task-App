@@ -51,5 +51,20 @@ export const style = StyleSheet.create({
     descriptionText: {
         color: 'white',
         fontSize: 15
+    },
+    modalDelete: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    contentModalDelete: {
+        width: '70%',
+        height: 100,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
