@@ -11,7 +11,7 @@ export const Navigate = () => {
     return (
         <>
             {
-            isLogin ? <TasksScreen /> : <StackNavigate /> 
+                isLogin ? <TasksScreen /> : <StackNavigate /> 
             }
         </>
     )

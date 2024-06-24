@@ -11,7 +11,7 @@ const App = () => {
       setTimeout(() =>
       {
         setInitial(false);
-      }, 3000);
+      }, 1000);
   })
 
   if (initial) return <InitialScreen />
