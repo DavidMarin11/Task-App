@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, View,TouchableOpacity, FlatList, ScrollView, Modal } from 'react-native'
+import { Text, View, TouchableOpacity, FlatList, ScrollView, Modal } from 'react-native'
 import { style } from '../styles/styleTasks'
 import { Logo } from '../../components/Logo'
 import { ModalTaskInputs } from '../components/ModalTaskInputs';
@@ -131,7 +131,7 @@ export const TasksScreen = () => {
         </View>
         <Modal
           visible={deleteModal}
-          animationType='slide'
+          animationType='fade'
           transparent={true}
           onRequestClose={() => setDeleteModal(false)}
         >
@@ -143,7 +143,7 @@ export const TasksScreen = () => {
                   onPress={() => deleteTask(titleDelete)}
                 >
                   <Text style={{marginTop: 10}}>
-                  <Icon name='trash-outline' size={30} color="#00045E" />
+                  <Icon name='trash-outline' size={30} color="#ff0000" />
                 </Text>
                 </TouchableOpacity>
                 

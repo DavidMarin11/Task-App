@@ -22,6 +22,13 @@ export const ModalTaskInputs = ({modalTask, control, addTask, errors, setModalTa
             onRequestClose={() => setModalTask(false)}
         >
             <View style={style.viewModal}>
+                <View>
+                <TouchableOpacity
+                onPress={() => setModalTask(false)}
+                style={style.touchableModal}
+                >
+                </TouchableOpacity>
+                </View>
                 <View style={style.contentModal}>
                         <Controller
                             control= {control}
@@ -123,5 +130,8 @@ const style = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         backgroundColor: 'white'
+    },
+    touchableModal: {
+        height:'100%'
     }
 })
